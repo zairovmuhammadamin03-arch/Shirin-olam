@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Shop | Shirinliklar olami</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">🍰 Sweet<span>Shop</span></a>
+
+        <nav>
+            <a href="#home">Bosh sahifa</a>
+            <a href="#products">Shirinliklar</a>
+            <a href="#about">Biz haqimizda</a>
+        </nav>
+
+        <button class="cart-button" id="cartButton">
+            🛒 Savatcha <span id="cartCount">0</span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">HAR BIR LAHZAGA SHIRINLIK</p>
+                <h1>Hayotingizga <span>shirinlik</span> qo‘shing!</h1>
+                <p>
+                    Eng mazali tortlar, kapkeyklar va shirinliklar
+                    siz uchun mehr bilan tayyorlanadi.
+                </p>
+                <a href="#products" class="primary-button">
+                    Xarid qilish →
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+                    alt="Mazali shokoladli tort"
+                >
+            </div>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-heading">
+                <p class="eyebrow">BIZNING MENYU</p>
+                <h2>Sevimli shirinliklaringiz</h2>
+                <p>O‘zingiz yoqtirgan shirinlikni tanlang!</p>
+            </div>
+
+            <div class="shop-tools">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="🔎 Shirinlik qidirish..."
+                    aria-label="Shirinlik qidirish"
+                >
+
+                <select id="categoryFilter" aria-label="Kategoriyani tanlash">
+                    <option value="all">Barcha shirinliklar</option>
+                    <option value="tort">Tortlar</option>
+                    <option value="kapkeyk">Kapkeyklar</option>
+                    <option value="pechenye">Pechenyelar</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <section class="about-section" id="about">
+            <h2>Bizning shirinliklar — sizning baxtingiz ❤️</h2>
+            <p>
+                Har bir mahsulotimiz sifatli masalliqlardan tayyorlanadi.
+                Yaqinlaringizga shirin kayfiyat ulashing!
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 SweetShop. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- Savatcha oynasi -->
+    <div class="modal" id="cartModal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Savatchangiz</h2>
+                <button class="close-button" id="closeCart"
+                    aria-label="Savatchani yopish">✕</button>
+            </div>
+
+            <div id="cartItems"></div>
+
+            <div class="cart-total">
+                <span>Jami:</span>
+                <strong id="cartTotal">0 so‘m</strong>
+            </div>
+
+            <button class="primary-button checkout-button" id="checkoutButton">
+                Buyurtma berish
+            </button>
+        </div>
+    </div>
+
+    <!-- Buyurtma formasi -->
+    <div class="modal" id="orderModal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📦 Buyurtma berish</h2>
+                <button class="close-button" id="closeOrder"
+                    aria-label="Formani yopish">✕</button>
+            </div>
+
+            <form id="orderForm">
+                <label for="customerName">Ismingiz</label>
+                <input
+                    id="customerName"
+                    name="name"
+                    type="text"
+                    placeholder="Ismingizni kiriting"
+                    required
+                >
+
+                <label for="customerPhone">Telefon raqamingiz</label>
+                <input
+                    id="customerPhone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+998 90 123 45 67"
+                    pattern="\+?[0-9\s()-]{9,20}"
+                    required
+                >
+
+                <label for="customerAddress">Yetkazib berish manzili</label>
+                <textarea
+                    id="customerAddress"
+                    name="address"
+                    placeholder="Manzilingizni kiriting"
+                    rows="3"
+                    required
+                ></textarea>
+
+                <p id="orderSummary" class="order-summary"></p>
+
+                <button type="submit" class="primary-button checkout-button">
+                    Buyurtmani tasdiqlash
+                </button>
+            </form>
+
+            <p class="form-note">
+                Hozircha demo rejim: buyurtma serverga yuborilmaydi.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
